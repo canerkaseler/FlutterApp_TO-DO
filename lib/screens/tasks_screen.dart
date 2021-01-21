@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/widgets/tasks_list.dart';
+import 'add_task_screen.dart';
 
 class TasksScreen extends StatelessWidget {
+
+  /*Widget buildModalBottomSheet(BuildContext context){
+    return Container();
+  }*/
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +16,12 @@ class TasksScreen extends StatelessWidget {
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
         onPressed: (){
-          // Add new task.
+          // builder: buildModalBottomSheet why is not buildModalBottomSheet() ?
+          // because builder type does not need context parameter.
+
+          //showModalBottomSheet(context: context, builder: buildModalBottomSheet);
+
+          showModalBottomSheet(context: context, builder: (context) => AddTaskScreen());
         },
       ),
       body: Column(
