@@ -21,7 +21,15 @@ class TasksScreen extends StatelessWidget {
 
           //showModalBottomSheet(context: context, builder: buildModalBottomSheet);
 
-          showModalBottomSheet(context: context, builder: (context) => AddTaskScreen());
+          showModalBottomSheet(
+            isScrollControlled: true,
+            context: context, builder: (context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: AddTaskScreen(),
+              )
+            ),
+          );
         },
       ),
       body: Column(
