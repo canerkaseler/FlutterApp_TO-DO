@@ -3,6 +3,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class AddTaskScreen extends StatelessWidget {
+
+  final Function callbackEnterTask;
+
+  AddTaskScreen({@required this.callbackEnterTask});
+
+  TextEditingController taskController = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,13 +28,13 @@ class AddTaskScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text("Add Task", textAlign: TextAlign.center, style: TextStyle(color: Colors.lightBlueAccent, fontSize: 30.0),),
-              TextField(autofocus: true, textAlign: TextAlign.center,),
+              TextField(autofocus: true, textAlign: TextAlign.center, controller: taskController, decoration: InputDecoration(hintText: "Write here..."),),
               SizedBox(height: 12.0,),
               FlatButton(
                 color: Colors.lightBlueAccent,
                 child: Text("Add", style: TextStyle(color: Colors.white, fontSize: 20.0),),
                 onPressed: (){
-
+                  callbackEnterTask(taskController.text);
                 },
               ),
             ],
