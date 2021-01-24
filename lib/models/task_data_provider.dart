@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/foundation.dart';
-import 'package:todo_list/models/task.dart';
+import 'package:todo_list/models/task_model.dart';
 
 class TaskData extends ChangeNotifier {
 
